@@ -1,0 +1,39 @@
+.crumbs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 0 0 30px;
+    height: 34px;
+    border-bottom: 1px solid #C5CDD4;
+
+    div {
+        margin: 0;
+    }
+
+    li,
+    p {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+
+        color: #70808A;
+
+    }
+
+    a {
+        text-decoration: none;
+        color: #005DA1;
+
+        &:hover {
+            color: #208AD9;
+            text-decoration: none;
+        }
+
+        &:focus {
+            color: #024F87;
+            text-decoration: none;
+        }
+    }
+}

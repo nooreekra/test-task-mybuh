@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;  
+    height: 48px;
+  
+    /* DarkBlueMain */
+  
+    background: #204A6A;
+    border-radius: 10px 0px 0px 0px;
+  }
+  
+
+  
+@media screen and (max-width: 1366px) {
+    .header {
+        border-radius: 0;
+    }
+}
