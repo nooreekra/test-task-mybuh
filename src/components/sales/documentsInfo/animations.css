@@ -1,0 +1,44 @@
+.transitionCancel, .transitionThunder {
+    opacity: 1; 
+}
+
+.transitionCancel-enter {
+    opacity: 0;
+    direction: rtl;
+    transform: translateX(40px);
+}
+
+.transitionCancel-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition-timing-function: ease-in-out;
+    transition: all 500ms;
+}
+
+.transitionCancel-exit-active {
+    opacity: 0;
+    transform: translateX(40px);
+    transition-timing-function: ease-in-out;
+    transition: all 500ms;
+}
+
+
+.transitionThunder-enter {
+    opacity: 0;
+    direction: ltr;
+    transform: translateX(-40px);
+}
+
+.transitionThunder-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition-timing-function: ease-in-out;
+    transition: all 500ms;
+}
+
+.transitionThunder-exit-active {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition-timing-function: ease-in-out;
+    transition: all 500ms;
+}

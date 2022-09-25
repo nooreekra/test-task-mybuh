@@ -27,6 +27,7 @@
         justify-content: center;
         align-items: center;
         background: #204A6A;
+        transition: background-color 500ms;
         border-radius: 4px;
 
         h4 {
@@ -45,7 +46,7 @@
         align-items: center;
         border-radius: 4px;
         background-color: #249508;
-        transition: width 2s;
+        transition: background-color 500ms;
 
         h4 {
             font-style: normal;
@@ -105,25 +106,31 @@
         .buttons {
             display: flex;
             justify-content: space-between;
-
+            
             div {
                 display: flex;
                 align-items: center;
+                p {
+                    white-space:nowrap;
+                }
             }
 
-            .thunderButton, .cancelButton {
+            .thunderButton,
+            .cancelButton {
                 display: flex;
                 align-items: stretch;
             }
 
             .thunderButton {
+                z-index: 1;
                 div {
                     padding: 0 10px;
                     border-radius: 0 3px 3px 0;
                 }
             }
-            
+
             .cancelButton {
+                z-index: 2;
                 div {
                     padding: 0 10px;
                     border-radius: 3px 0px 0px 3px;
@@ -138,50 +145,64 @@
                 justify-content: center;
                 align-items: center;
                 border-radius: 4px;
-
+                z-index: 2;
                 &:hover {
                     cursor: pointer;
+
                 }
+
             }
-            
+
             .thunderActiveText {
-                background: #005DA1;
+                color: #005DA1;
                 background: #005DA11A;
-                transition-timing-function: ease-in-out;
+                transition: all 500ms;
             }
 
             .thunderDisabledText {
                 color: #249508;
                 background: #2495081A;
-                transition-timing-function: ease-in-out;
+                transition: all 500ms;
             }
 
-            .cancelActiveText {  
+            .cancelActiveText {
                 color: #B90E14;
                 background: #B90E141A;
-                transition-timing-function: ease-in-out;
+                transition: all 500ms;
             }
 
             .cancelDisabledText {
                 color: #70808A;
                 background: #70808A1A;
-                transition-timing-function: ease-in-out;
+                transition: all 500ms;
             }
 
             .thunderActive {
-                background: #005DA1;
+                background-color: #005DA1;
+                transition: background-color 500ms;
             }
 
             .cancelDisabled {
-                background: #70808A;
+                &:hover {
+                    cursor: default;
+                }
+
+                background-color: #70808A;
+                transition: background-color 500ms;
             }
 
             .thunderDisabled {
-                background: #249508;
+                &:hover {
+                    cursor: default;
+                }
+
+                background-color: #249508;
+                transition: background-color 500ms;
             }
 
             .cancelActive {
-                background: #B90E14;
+                background-color: #B90E14;
+                transition: background-color 500ms;
             }
         }
     }
