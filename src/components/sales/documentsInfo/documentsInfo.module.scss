@@ -1,0 +1,188 @@
+.box {
+    width: 309px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    background: #FFFFFF;
+    border: 1px solid #DFE3E5;
+    border-radius: 4px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+
+    #saleHeader {
+        height: 41px;
+    }
+
+    .boxHeader {
+        width: 100%;
+        height: 38px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: #204A6A;
+        border-radius: 4px;
+
+        h4 {
+            font-style: normal;
+            line-height: 25px;
+            color: #FFFFFF;
+        }
+    }
+
+    .green {
+        width: 100%;
+        height: 38px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        background-color: #249508;
+        transition: width 2s;
+
+        h4 {
+            font-style: normal;
+            line-height: 25px;
+            color: #FFFFFF;
+        }
+    }
+
+    .boxContent {
+        width: -webkit-fill-available;
+        padding: 20px 30px;
+
+        .flex {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            margin-right: 12px;
+        }
+
+        p,
+        pre {
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #005DA1;
+
+            &:hover {
+                color: #208AD9;
+            }
+
+            &:focus {
+                color: #024F87;
+
+            }
+
+        }
+
+        .filterDarkBlueSmall {
+            width: 14px;
+            height: 14px;
+            filter: invert(21%) sepia(92%) saturate(372%) hue-rotate(162deg) brightness(97%) contrast(93%);
+        }
+
+        .filterBlueMedium {
+            width: 21px;
+            height: 28px;
+            filter: invert(21%) sepia(89%) saturate(7115%) hue-rotate(194deg) brightness(88%) contrast(101%);
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+
+            div {
+                display: flex;
+                align-items: center;
+            }
+
+            .thunderButton, .cancelButton {
+                display: flex;
+                align-items: stretch;
+            }
+
+            .thunderButton {
+                div {
+                    padding: 0 10px;
+                    border-radius: 0 3px 3px 0;
+                }
+            }
+            
+            .cancelButton {
+                div {
+                    padding: 0 10px;
+                    border-radius: 3px 0px 0px 3px;
+                }
+            }
+
+            button {
+                width: 32px;
+                height: 32px;
+                display: flex;
+                border: 0;
+                justify-content: center;
+                align-items: center;
+                border-radius: 4px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            
+            .thunderActiveText {
+                background: #005DA1;
+                background: #005DA11A;
+                transition-timing-function: ease-in-out;
+            }
+
+            .thunderDisabledText {
+                color: #249508;
+                background: #2495081A;
+                transition-timing-function: ease-in-out;
+            }
+
+            .cancelActiveText {  
+                color: #B90E14;
+                background: #B90E141A;
+                transition-timing-function: ease-in-out;
+            }
+
+            .cancelDisabledText {
+                color: #70808A;
+                background: #70808A1A;
+                transition-timing-function: ease-in-out;
+            }
+
+            .thunderActive {
+                background: #005DA1;
+            }
+
+            .cancelDisabled {
+                background: #70808A;
+            }
+
+            .thunderDisabled {
+                background: #249508;
+            }
+
+            .cancelActive {
+                background: #B90E14;
+            }
+        }
+    }
+}
