@@ -14,3 +14,9 @@
         left: 0;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .App {
+        width: fit-content;
+    }
+}

@@ -4,8 +4,6 @@ import cancelIcon from '../../../assets/icons/cancel.svg'
 import style from './documentsInfo.module.scss'
 import fileIcon from '../../../assets/icons/file.svg'
 import calendarIcon from '../../../assets/icons/calendar.svg'
-import { CSSTransition } from 'react-transition-group'
-import './animations.css'
 
 type PropsType = {
     state_id: number,
@@ -16,13 +14,8 @@ type PropsType = {
 export const SaleBox = (props: PropsType) => {
     const { state_id, doc_number, doc_date } = props
     const [stateId, setStateId] = useState(!!state_id)
-    const [stateTextThunder, setStateTextThunder] = useState(false)
-    const [stateTextCancel, setStateTextCancel] = useState(false)
-    const nodeRef = useRef(null);
-    const thunderTextClass = stateId ? style.thunderActiveText : style.thunderDisabledText
-    const thunderTextClasses = `transitionThunder ${thunderTextClass}`
-    const cancelTextClass = stateId ? style.cancelDisabledText : style.cancelActiveText
-    const cancelTextClasses = `transitionCancel ${cancelTextClass}`
+    const thunderTextClasses = `${style.transitionThunder} ${stateId ? style.thunderActiveText : style.thunderDisabledText}`
+    const cancelTextClasses = `${style.transitionCancel} ${stateId ? style.cancelDisabledText : style.cancelActiveText}`
     return (
         <div className={style.box}>
             <div id={style.saleHeader} className={stateId ? style.boxHeader : style.green}>
@@ -45,39 +38,19 @@ export const SaleBox = (props: PropsType) => {
                 <div className={style.buttons}>
                     <div className={style.thunderButton}>
                         <button
-                            onMouseEnter={() => setStateTextThunder(true)}
-                            onMouseLeave={() => setStateTextThunder(false)}
                             onClick={() => setStateId(false)}
                             className={stateId ? style.thunderActive : style.thunderDisabled}>
                             <img src={thunderIcon} alt="thunder" />
                         </button>
-                            <CSSTransition
-                                nodeRef={nodeRef}
-                                in={stateTextThunder}
-                                timeout={500}
-                                classNames='transitionThunder'
-                                mountOnEnter
-                                unmountOnExit>
-                                <div className={thunderTextClasses} ref={nodeRef}>
-                                    <p>{stateId ? 'Провести документ' : 'Документ проведен'}</p>
-                                </div>
-                            </CSSTransition>
+                        <div className={thunderTextClasses}>
+                            <p>{stateId ? 'Провести документ' : 'Документ проведен'}</p>
+                        </div>
                     </div>
                     <div className={style.cancelButton}>
-                        <CSSTransition
-                            nodeRef={nodeRef}
-                            in={stateTextCancel}
-                            timeout={500}
-                            classNames='transitionCancel'
-                            mountOnEnter
-                            unmountOnExit>
-                            <div className={cancelTextClasses} ref={nodeRef}>
-                                <p>{stateId ? 'Документ не проведен' : 'Отменить проводку'}</p>
-                            </div>
-                        </CSSTransition>
+                        <div className={cancelTextClasses} >
+                            <p>{stateId ? 'Документ не проведен' : 'Отменить проводку'}</p>
+                        </div>
                         <button
-                            onMouseEnter={() => setStateTextCancel(true)}
-                            onMouseLeave={() => setStateTextCancel(false)}
                             onClick={() => setStateId(true)}
                             className={stateId ? style.cancelDisabled : style.cancelActive}>
                             <img src={cancelIcon} alt="cancel" />
