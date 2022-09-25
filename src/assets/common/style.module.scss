@@ -1,5 +1,11 @@
 .container {
     display: flex;
     width: auto;
-    margin: 30px;
+    margin: 210px;
+}
+
+@media screen and (max-width: 1920px) {
+    .container {
+        margin: 30px;
+    }
 }

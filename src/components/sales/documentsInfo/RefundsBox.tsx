@@ -18,13 +18,17 @@ export const RefundsBox = (props: PropsType) => {
             </div>
             <div className={style.boxContent}>
                 <div>
-                    <div className={style.flex}>
+                    <div className={style.info}>
                         <div className={style.icon}><img src={idFileIcon} alt="file" /></div>
-                        <div>
-                            <pre>{doc_number}  <img src={calendarIcon} alt="calendar" className={style.filterDarkBlueSmall} /> {doc_date}</pre>
+                        <div className={style.flex}>
+                            <p>{doc_number}</p>
+                            <div className={style.flex}>
+                                <img src={calendarIcon} alt="calendar" className={style.filterDarkBlueSmall} />
+                                <pre> {doc_date}</pre>
+                            </div>
                         </div>
                     </div>
-                    <div className={style.flex}>
+                    <div className={style.info}>
                         <div className={style.icon}><img src={addFileIcon} alt="file" /></div>
                         <div>
                             <a href='#'>Добавить возврат</a>

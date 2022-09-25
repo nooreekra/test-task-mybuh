@@ -59,10 +59,20 @@
         width: -webkit-fill-available;
         padding: 20px 30px;
 
-        .flex {
+        .info {
             display: flex;
             align-items: center;
             margin-bottom: 16px;
+
+            .flex {
+                display: flex;
+                align-items: center;
+                div {
+                    margin-left: 16px;
+                }
+            }
+
+            
         }
 
         .icon {
@@ -89,7 +99,8 @@
 
             }
 
-        }
+        } 
+
 
         .filterDarkBlueSmall {
             width: 14px;
@@ -124,6 +135,7 @@
 
             .thunderButton {
                 z-index: 1;
+
                 &:hover {
                     .transitionThunder {
                         opacity: 1;
@@ -131,6 +143,7 @@
                         transition: all 1000ms;
                     }
                 }
+
                 div {
                     padding: 0 10px;
                     border-radius: 0 3px 3px 0;
@@ -139,6 +152,7 @@
 
             .cancelButton {
                 z-index: 1;
+
                 &:hover {
                     .transitionCancel {
                         opacity: 1;
@@ -146,10 +160,12 @@
                         transition: all 1000ms;
                     }
                 }
+
                 div {
                     padding: 0 30px 0 10px;
                     border-radius: 3px 0px 0px 3px;
                 }
+
                 button {
                     position: absolute;
                     margin-left: 35px;
@@ -181,7 +197,7 @@
             .transitionCancel {
                 transform: translateX(-110px);
             }
-            
+
             .transitionThunder {
                 width: 128px;
                 transform: translateX(-40px);

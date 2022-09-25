@@ -22,15 +22,15 @@ export const SaleBox = (props: PropsType) => {
                 <h4>Продажа</h4>
             </div>
             <div className={style.boxContent}>
-                <div className={style.flex}>
+                <div className={style.info}>
                     <div className={style.icon}><img src={fileIcon} alt="file" /></div>
                     <div><p> Акт выполненных работ</p></div>
                 </div>
-                <div className={style.flex}>
+                <div className={style.info}>
                     <div className={style.icon}><span>№</span></div>
                     <div><p>{doc_number}</p></div>
                 </div>
-                <div className={style.flex}>
+                <div className={style.info}>
                     <div className={style.icon}><img src={calendarIcon} alt="file" /></div>
                     <div><p>{doc_date}</p></div>
                 </div>
