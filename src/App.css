@@ -1,6 +1,14 @@
 .App {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     position: absolute;
+    width: fill-available;
     width: -webkit-fill-available;
+    width: -moz-available;
+    min-height: fill-available;
+    min-height: -webkit-fill-available;
+    min-height: -moz-available;
     left: 220px;
     top: 0px;
     background: #F5FAFE;
@@ -20,3 +28,10 @@
         width: fit-content;
     }
 }
+
+@media screen and (min-height: 800px) {
+    .App {
+        height: 100%;
+    }
+}
+

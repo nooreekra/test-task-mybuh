@@ -6,6 +6,7 @@ import printIcon from '../../../assets/icons/print.svg'
 import uploadIcon from '../../../assets/icons/upload.svg'
 import editIcon from '../../../assets/icons/edit.svg'
 import document from '../../../assets/files/test.pdf'
+import { useState } from 'react'
 
 type PropsType = {
     date_create: string,
@@ -15,6 +16,7 @@ type PropsType = {
 
 export const DocumentViewer = (props: PropsType) => {
     const { date_create, date_edit, file} = props
+    const [isChecked, setIsChecked] = useState(false)
     return (
         <div className={style.document}>
             <div className={style.documentEdit}>
@@ -34,8 +36,8 @@ export const DocumentViewer = (props: PropsType) => {
             ></iframe>
             <div className={style.documentInfo}>
                 <div className={style.insertSeal}>
-                    <input type="checkbox" />
-                    <p>Вставить печать и подпись</p>
+                    <input type="checkbox" className={style.checkbox} checked={isChecked} onChange={() => setIsChecked(!isChecked)}/>
+                    <p onClick={() => setIsChecked(!isChecked)}>Вставить печать и подпись</p>
                 </div>
                 <div className={style.documentDate}>
                     <p>Добавлен {date_create}, изменен {date_edit}</p>

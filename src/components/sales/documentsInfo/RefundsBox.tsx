@@ -11,8 +11,9 @@ type PropsType = {
 
 export const RefundsBox = (props: PropsType) => {
     const { doc_number, doc_date } = props
+    const refundBoxClasses = `${style.refundBox} ${style.box}`
     return (
-        <div className={(style.refunds, style.box)}>
+        <div className={refundBoxClasses}>
             <div className={style.boxHeader}>
                 <h4>Возвраты от покупателя</h4>
             </div>

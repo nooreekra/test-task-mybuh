@@ -14,8 +14,16 @@ type PropsType = {
 export const SaleBox = (props: PropsType) => {
     const { state_id, doc_number, doc_date } = props
     const [stateId, setStateId] = useState(!!state_id)
-    const thunderTextClasses = `${style.transitionThunder} ${stateId ? style.thunderActiveText : style.thunderDisabledText}`
-    const cancelTextClasses = `${style.transitionCancel} ${stateId ? style.cancelDisabledText : style.cancelActiveText}`
+    const [showChangeState, setShowChangeState] = useState(false)
+    const [showState, setShowState] = useState(true)
+
+    const thunderTextClasses = `${style.stateTransition} 
+    ${stateId ? style.declinedState : style.acceptedState} 
+    ${showState && style.stateText}`
+
+    const cancelTextClasses = `${style.changeStateTransition} 
+    ${stateId ? style.changeToAccept : style.changeToDecline} 
+    ${showChangeState && style.changeStateText}`
     return (
         <div className={style.box}>
             <div id={style.saleHeader} className={stateId ? style.boxHeader : style.green}>
@@ -35,25 +43,34 @@ export const SaleBox = (props: PropsType) => {
                     <div><p>{doc_date}</p></div>
                 </div>
 
-                <div className={style.buttons}>
-                    <div className={style.thunderButton}>
+                <div className={style.buttons} onMouseEnter={() => {
+                        setShowState(false)
+                        setShowChangeState(true)
+                    }
+                    } onMouseLeave={() => {
+                        setShowState(true)
+                        setShowChangeState(false) 
+                    }}>
+                    <div className={style.stateButton}>
                         <button
-                            onClick={() => setStateId(false)}
-                            className={stateId ? style.thunderActive : style.thunderDisabled}>
-                            <img src={thunderIcon} alt="thunder" />
+                            className={stateId ? style.declinedStateButton : style.acceptedStateButton}>
+                            <img src={stateId ? cancelIcon : thunderIcon} alt="thunder" />
                         </button>
                         <div className={thunderTextClasses}>
-                            <p>{stateId ? 'Провести документ' : 'Документ проведен'}</p>
+                            <p>{stateId ? 'Документ не проведен' : 'Документ проведен'}</p>
                         </div>
                     </div>
-                    <div className={style.cancelButton}>
-                        <div className={cancelTextClasses} >
-                            <p>{stateId ? 'Документ не проведен' : 'Отменить проводку'}</p>
+                    <div className={style.changeStateButton} onClick={() => {
+                        setStateId(!stateId)
+                        setShowState(false)
+                        setShowChangeState(true)
+                        }}>
+                        <div className={cancelTextClasses}>
+                            <p>{stateId ? 'Провести документ' : 'Отменить проводку'}</p>
                         </div>
                         <button
-                            onClick={() => setStateId(true)}
-                            className={stateId ? style.cancelDisabled : style.cancelActive}>
-                            <img src={cancelIcon} alt="cancel" />
+                            className={stateId ? style.changeToAcceptButton : style.changeToDeclineButton}>
+                            <img src={stateId ? thunderIcon : cancelIcon} alt="cancel" />
                         </button>
                     </div>
                 </div>

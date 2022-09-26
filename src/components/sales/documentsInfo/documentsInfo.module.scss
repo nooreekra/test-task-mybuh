@@ -12,8 +12,9 @@
     order: 0;
     flex-grow: 0;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 20px;
+
 
     #saleHeader {
         height: 41px;
@@ -29,6 +30,9 @@
         background: #204A6A;
         transition: background-color 500ms;
         border-radius: 4px;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        user-select: none;
 
         h4 {
             font-style: normal;
@@ -47,6 +51,9 @@
         border-radius: 4px;
         background-color: #249508;
         transition: background-color 500ms;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        user-select: none;
 
         h4 {
             font-style: normal;
@@ -56,7 +63,9 @@
     }
 
     .boxContent {
+        width: fill-available;
         width: -webkit-fill-available;
+        width: -moz-available;
         padding: 20px 30px;
 
         .info {
@@ -67,12 +76,13 @@
             .flex {
                 display: flex;
                 align-items: center;
+
                 div {
                     margin-left: 16px;
                 }
             }
 
-            
+
         }
 
         .icon {
@@ -99,7 +109,7 @@
 
             }
 
-        } 
+        }
 
 
         .filterDarkBlueSmall {
@@ -117,6 +127,11 @@
         .buttons {
             display: flex;
             justify-content: space-between;
+            cursor: pointer;
+            overflow: hidden;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
 
             div {
                 display: flex;
@@ -127,22 +142,15 @@
                 }
             }
 
-            .thunderButton,
-            .cancelButton {
+            .stateButton,
+            .changeStateButton {
                 display: flex;
                 align-items: stretch;
+
             }
 
-            .thunderButton {
+            .stateButton {
                 z-index: 1;
-
-                &:hover {
-                    .transitionThunder {
-                        opacity: 1;
-                        transform: translateX(0);
-                        transition: all 1000ms;
-                    }
-                }
 
                 div {
                     padding: 0 10px;
@@ -150,16 +158,8 @@
                 }
             }
 
-            .cancelButton {
-                z-index: 1;
-
-                &:hover {
-                    .transitionCancel {
-                        opacity: 1;
-                        transform: translateX(-135px);
-                        transition: all 1000ms;
-                    }
-                }
+            .changeStateButton {
+                z-index: 2;
 
                 div {
                     padding: 0 30px 0 10px;
@@ -168,7 +168,7 @@
 
                 button {
                     position: absolute;
-                    margin-left: 35px;
+                    margin-left: 10px;
                 }
             }
 
@@ -189,50 +189,60 @@
 
             }
 
-            .transitionCancel,
-            .transitionThunder {
+            .changeStateTransition,
+            .stateTransition {
                 opacity: 0;
             }
 
-            .transitionCancel {
-                transform: translateX(-110px);
+            .changeStateText {
+                opacity: 1 !important;
+                transform: translateX(-165px) !important;
             }
 
-            .transitionThunder {
-                width: 128px;
+            .stateText {
+                opacity: 1 !important;
+                transform: translateX(0) !important;
+            }
+
+            .changeStateTransition {
+                display: flex;
+                justify-content: center;
+                width: 150px;
+                transform: translateX(-150px);
+            }
+
+            .stateTransition {
+                display: flex;
+                justify-content: center;
+                width: 150px;
                 transform: translateX(-40px);
             }
 
-            .thunderActiveText {
-                color: #005DA1;
-                background: #005DA11A;
-                transition: all 500ms;
-            }
-
-            .thunderDisabledText {
-                color: #249508;
-                background: #2495081A;
-                transition: all 500ms;
-            }
-
-            .cancelActiveText {
-                color: #B90E14;
-                background: #B90E141A;
-                transition: all 500ms;
-            }
-
-            .cancelDisabledText {
+            .declinedState {
                 color: #70808A;
                 background: #70808A1A;
                 transition: all 500ms;
             }
 
-            .thunderActive {
-                background-color: #005DA1;
-                transition: background-color 500ms;
+            .acceptedState {
+                color: #249508;
+                background: #2495081A;
+                transition: all 500ms;
             }
 
-            .cancelDisabled {
+            .changeToDecline {
+                color: #B90E14;
+                background: #B90E141A;
+                transition: all 500ms;
+            }
+
+            .changeToAccept {
+                color: #005DA1;
+                background: #005DA11A;
+                transition: all 500ms;
+            }
+
+            .declinedStateButton {
                 &:hover {
                     cursor: default;
                 }
@@ -241,7 +251,13 @@
                 transition: background-color 500ms;
             }
 
-            .thunderDisabled {
+            .changeToAcceptButton {
+
+                background-color: #005DA1;
+                transition: background-color 500ms;
+            }
+
+            .acceptedStateButton {
                 &:hover {
                     cursor: default;
                 }
@@ -250,10 +266,14 @@
                 transition: background-color 500ms;
             }
 
-            .cancelActive {
+            .changeToDeclineButton {
                 background-color: #B90E14;
                 transition: background-color 500ms;
             }
         }
     }
+}
+
+.refundBox {
+    margin-bottom: 0;
 }
